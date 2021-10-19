@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Ewill test{% endblock %}</title>
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -26,7 +27,7 @@
                             <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('produits_index') }}">Produits</a>
+                            <a class="nav-link" href="{{ path('produits_index') }}">CRUD des produits</a>
                         </li>
                     </ul>
                     {{ render(controller( 'App\\Controller\\SearchController::searchBar')) }}

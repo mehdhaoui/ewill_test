@@ -1,10 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil | Ewill-test{% endblock %}
 
 {% block content %}
+
     <div class="container">
-        <h1 class="text-center mt-5">Ewill test</h1>
+        <h1 class="text-center m-5">Page d'accueil, voici les produits :</h1>
+        <div class="row">
+            {%for produit in produits %}
+                <div class="col mb-5">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ produit.nom }}</h5>
+                            <p class="card-text">ref : {{ produit.reference }}</p>
+                            <p class="card-text">{{ produit.description }}</p>
+                            <p class="card-text">{{ produit.prix }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <h3 class="text-center">Il n'y a pas de produits pour le moment</h3>
+            {% endfor %}
+
+        </div>
+
     </div>
 
 {% endblock %}
