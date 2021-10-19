@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits index{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5">Produits </h1>
+
+        <div class="table-responsive">
+
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Reference</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for produit in produits %}
+                    <tr>
+                        <td>{{ produit.id }}</td>
+                        <td>{{ produit.reference }}</td>
+                        <td>{{ produit.nom }}</td>
+                        <td>{{ produit.description }}</td>
+                        <td>{{ produit.prix }}</td>
+                        <td>
+                            <a href="{{ path('produits_show', {'id': produit.id}) }}" class="btn btn-primary button_style">Détail</a>
+                            <a href="{{ path('produits_edit', {'id': produit.id}) }}" class="btn btn-success button_style">Modifier</a>
+                            {{ include('produits/_delete_form.html.twig') }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6">aucun produits trouvés</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+        <a class="btn btn-primary" href="{{ path('produits_new') }}">ajouter un produit</a>
+    </div>
+{% endblock %}
